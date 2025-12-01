@@ -9,7 +9,7 @@ class PointInterest extends Model
 {
     use HasFactory;
 
-    protected $table = 'points_interest';
+    protected $table = 'points_of_interest';
 
     protected $fillable = [
         'nom',
@@ -18,18 +18,13 @@ class PointInterest extends Model
         'adresse',
         'latitude',
         'longitude',
-        'telephone',
-        'email',
-        'site_web',
-        'horaires',
-        'actif',
+        'active',
     ];
 
     protected $casts = [
         'latitude' => 'decimal:8',
         'longitude' => 'decimal:8',
-        'horaires' => 'array',
-        'actif' => 'boolean',
+        'active' => 'boolean',
     ];
 
     // Scopes pour filtrer par type
@@ -40,7 +35,7 @@ class PointInterest extends Model
 
     public function scopeActive($query)
     {
-        return $query->where('actif', true);
+        return $query->where('active', true);
     }
 
     // Méthode pour calculer la distance entre deux points
