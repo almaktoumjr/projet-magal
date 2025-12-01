@@ -833,7 +833,7 @@ const Admin = () => {
           width: 40px;
           height: 40px;
           border: 4px solid #f3f3f3;
-          border-top: 4px solid #667eea;
+          border-top: 4px solid #1B5E20;
           border-radius: 50%;
           animation: spin 1s linear infinite;
           margin: 0 auto;
@@ -899,7 +899,7 @@ const Admin = () => {
         }
 
         .stat-card svg {
-          color: #667eea;
+          color: #1B5E20;
           flex-shrink: 0;
         }
 
@@ -941,12 +941,12 @@ const Admin = () => {
         }
 
         .tab:hover:not(:disabled) {
-          background: rgba(102, 126, 234, 0.1);
-          color: #667eea;
+          background: rgba(27, 94, 32, 0.1);
+          color: #1B5E20;
         }
 
         .tab.active {
-          background: #667eea;
+          background: #1B5E20;
           color: white;
         }
 
@@ -971,7 +971,7 @@ const Admin = () => {
           display: flex;
           align-items: center;
           gap: 8px;
-          background: linear-gradient(45deg, #667eea, #764ba2);
+          background: linear-gradient(45deg, #1B5E20, #4CAF50);
           color: white;
           border: none;
           padding: 12px 24px;
@@ -983,7 +983,7 @@ const Admin = () => {
 
         .btn-add:hover:not(:disabled) {
           transform: translateY(-2px);
-          box-shadow: 0 8px 25px rgba(102, 126, 234, 0.3);
+          box-shadow: 0 8px 25px rgba(27, 94, 32, 0.4);
         }
 
         .btn-add:disabled {
@@ -1187,7 +1187,7 @@ const Admin = () => {
         .form-group select:focus,
         .form-group textarea:focus {
           outline: none;
-          border-color: #667eea;
+          border-color: #1B5E20;
           box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
         }
 

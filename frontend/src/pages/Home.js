@@ -337,7 +337,7 @@ const Home = () => {
 
         /* Hero Section */
         .hero-section {
-          background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+          background: linear-gradient(135deg, #1B5E20 0%, #2E7D32 50%, #4CAF50 100%);
           min-height: 80vh;
           display: flex;
           align-items: center;
@@ -396,7 +396,7 @@ const Home = () => {
         }
 
         .highlight {
-          background: linear-gradient(45deg, #ff6b6b, #feca57);
+          background: linear-gradient(45deg, #FFD700, #FFC107);
           -webkit-background-clip: text;
           -webkit-text-fill-color: transparent;
           background-clip: text;
@@ -440,8 +440,8 @@ const Home = () => {
           display: flex;
           align-items: center;
           gap: 12px;
-          background: linear-gradient(45deg, #ff6b6b, #ee5a24);
-          color: white;
+          background: linear-gradient(45deg, #FFD700, #FFC107);
+          color: #1B5E20;
           border: none;
           padding: 18px 36px;
           border-radius: 50px;
@@ -449,14 +449,15 @@ const Home = () => {
           font-weight: 600;
           cursor: pointer;
           transition: all 0.3s ease;
-          box-shadow: 0 8px 25px rgba(255, 107, 107, 0.3);
+          box-shadow: 0 8px 25px rgba(255, 215, 0, 0.4);
           animation: fadeInUp 1s ease-out 0.6s both;
           margin: 0 auto;
         }
 
         .hero-btn:hover {
           transform: translateY(-3px);
-          box-shadow: 0 12px 35px rgba(255, 107, 107, 0.4);
+          box-shadow: 0 12px 35px rgba(255, 215, 0, 0.5);
+          background: linear-gradient(45deg, #FFC107, #FFD700);
         }
 
         @keyframes fadeInUp {
@@ -494,7 +495,7 @@ const Home = () => {
           transform: translateX(-50%);
           width: 100px;
           height: 4px;
-          background: linear-gradient(45deg, #667eea, #764ba2);
+          background: linear-gradient(45deg, #1B5E20, #4CAF50);
           border-radius: 2px;
         }
 
@@ -524,7 +525,7 @@ const Home = () => {
           left: 0;
           right: 0;
           height: 5px;
-          background: linear-gradient(90deg, #667eea, #764ba2, #ff6b6b);
+          background: linear-gradient(90deg, #1B5E20, #2E7D32, #4CAF50);
           transform: translateX(-100%);
           transition: transform 0.4s ease;
         }
@@ -549,8 +550,8 @@ const Home = () => {
         }
 
         .stat-card.points .stat-icon {
-          background: linear-gradient(135deg, #ff6b6b, #ee5a24);
-          color: white;
+          background: linear-gradient(135deg, #FFD700, #FFC107);
+          color: #1B5E20;
         }
 
         .stat-icon {
@@ -592,7 +593,7 @@ const Home = () => {
 
         .progress-bar {
           height: 100%;
-          background: linear-gradient(90deg, #667eea, #764ba2);
+          background: linear-gradient(90deg, #1B5E20, #4CAF50);
           border-radius: 3px;
           transition: width 1s ease;
         }
@@ -652,7 +653,7 @@ const Home = () => {
           top: 0;
           bottom: 0;
           width: 5px;
-          background: linear-gradient(45deg, #667eea, #764ba2);
+          background: linear-gradient(45deg, #1B5E20, #4CAF50);
         }
 
         .event-card:hover {
@@ -666,8 +667,8 @@ const Home = () => {
           gap: 8px;
           font-size: 1.2rem;
           font-weight: 700;
-          color: #667eea;
-          background: rgba(102, 126, 234, 0.1);
+          color: #1B5E20;
+          background: rgba(27, 94, 32, 0.1);
           padding: 15px 20px;
           border-radius: 15px;
           min-width: 120px;
@@ -725,8 +726,8 @@ const Home = () => {
           align-items: center;
           gap: 8px;
           background: transparent;
-          border: 2px solid #667eea;
-          color: #667eea;
+          border: 2px solid #1B5E20;
+          color: #1B5E20;
           padding: 12px 24px;
           border-radius: 25px;
           font-weight: 600;
@@ -735,7 +736,7 @@ const Home = () => {
         }
 
         .btn-outline:hover {
-          background: #667eea;
+          background: #1B5E20;
           color: white;
           transform: translateY(-2px);
         }
@@ -750,7 +751,7 @@ const Home = () => {
         /* CTA Section */
         .cta-section {
           padding: 6rem 0;
-          background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+          background: linear-gradient(135deg, #1B5E20 0%, #2E7D32 50%, #4CAF50 100%);
           color: white;
           text-align: center;
         }
@@ -775,8 +776,8 @@ const Home = () => {
         }
 
         .btn-primary {
-          background: linear-gradient(45deg, #ff6b6b, #ee5a24);
-          color: white;
+          background: linear-gradient(45deg, #FFD700, #FFC107);
+          color: #1B5E20;
           border: none;
           padding: 16px 32px;
           border-radius: 50px;
@@ -784,12 +785,13 @@ const Home = () => {
           font-weight: 600;
           cursor: pointer;
           transition: all 0.3s ease;
-          box-shadow: 0 8px 25px rgba(255, 107, 107, 0.3);
+          box-shadow: 0 8px 25px rgba(255, 215, 0, 0.4);
         }
 
         .btn-primary:hover {
           transform: translateY(-3px);
-          box-shadow: 0 12px 35px rgba(255, 107, 107, 0.4);
+          box-shadow: 0 12px 35px rgba(255, 215, 0, 0.5);
+          background: linear-gradient(45deg, #FFC107, #FFD700);
         }
 
         .btn-outline-white {
@@ -806,7 +808,7 @@ const Home = () => {
 
         .btn-outline-white:hover {
           background: white;
-          color: #667eea;
+          color: #1B5E20;
           transform: translateY(-3px);
         }
 

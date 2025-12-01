@@ -288,13 +288,13 @@ const PointsInterest = () => {
         }
 
         .filter-btn:hover {
-          border-color: #667eea;
-          color: #667eea;
+          border-color: #1B5E20;
+          color: #1B5E20;
         }
 
         .filter-btn.active {
-          background: #667eea;
-          border-color: #667eea;
+          background: #1B5E20;
+          border-color: #1B5E20;
           color: white;
         }
 
@@ -382,7 +382,7 @@ const PointsInterest = () => {
           display: flex;
           align-items: center;
           gap: 8px;
-          background: linear-gradient(45deg, #667eea, #764ba2);
+          background: linear-gradient(45deg, #1B5E20, #4CAF50);
           color: white;
           border: none;
           padding: 12px 20px;
@@ -396,7 +396,7 @@ const PointsInterest = () => {
 
         .btn-directions:hover:not(.disabled) {
           transform: translateY(-2px);
-          box-shadow: 0 8px 25px rgba(102, 126, 234, 0.3);
+          box-shadow: 0 8px 25px rgba(27, 94, 32, 0.4);
         }
 
         .btn-directions.disabled {
@@ -407,8 +407,8 @@ const PointsInterest = () => {
 
         .btn-info {
           background: transparent;
-          border: 2px solid #667eea;
-          color: #667eea;
+          border: 2px solid #1B5E20;
+          color: #1B5E20;
           padding: 12px 20px;
           border-radius: 25px;
           font-weight: 600;
@@ -418,7 +418,7 @@ const PointsInterest = () => {
         }
 
         .btn-info:hover {
-          background: #667eea;
+          background: #1B5E20;
           color: white;
         }
 
@@ -446,7 +446,7 @@ const PointsInterest = () => {
         }
 
         .retry-btn {
-          background: #667eea;
+          background: #1B5E20;
           color: white;
           border: none;
           padding: 12px 24px;

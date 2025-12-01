@@ -228,24 +228,25 @@ const Registration = ({ onSuccessfulRegistration }) => {
             margin-top: 2rem;
           }
 
-          .login-now-btn {
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            background: linear-gradient(45deg, #667eea, #764ba2);
-            color: white;
-            border: none;
-            padding: 15px 30px;
-            border-radius: 25px;
-            font-weight: 600;
-            cursor: pointer;
-            transition: all 0.3s ease;
-          }
+        .login-now-btn {
+          display: inline-flex;
+          align-items: center;
+          gap: 8px;
+          background: linear-gradient(45deg, #FFD700, #FFC107);
+          color: #1B5E20;
+          border: none;
+          padding: 15px 30px;
+          border-radius: 25px;
+          font-weight: 600;
+          cursor: pointer;
+          transition: all 0.3s ease;
+        }
 
-          .login-now-btn:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 12px 35px rgba(102, 126, 234, 0.4);
-          }
+        .login-now-btn:hover {
+          transform: translateY(-2px);
+          box-shadow: 0 12px 35px rgba(255, 215, 0, 0.5);
+          background: linear-gradient(45deg, #FFC107, #FFD700);
+        }
         `}</style>
       </div>
     );
@@ -415,7 +416,7 @@ const Registration = ({ onSuccessfulRegistration }) => {
         .registration-page {
           padding: 4rem 0;
           min-height: 100vh;
-          background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+          background: linear-gradient(135deg, #1B5E20 0%, #2E7D32 50%, #4CAF50 100%);
           display: flex;
           align-items: center;
         }
@@ -518,8 +519,8 @@ const Registration = ({ onSuccessfulRegistration }) => {
         }
 
         .btn-submit {
-          background: linear-gradient(45deg, #ff6b6b, #ee5a24);
-          color: white;
+          background: linear-gradient(45deg, #FFD700, #FFC107);
+          color: #1B5E20;
           border: none;
           padding: 18px 36px;
           border-radius: 50px;
@@ -536,7 +537,8 @@ const Registration = ({ onSuccessfulRegistration }) => {
 
         .btn-submit:hover:not(:disabled) {
           transform: translateY(-2px);
-          box-shadow: 0 12px 35px rgba(255, 107, 107, 0.4);
+          box-shadow: 0 12px 35px rgba(255, 215, 0, 0.5);
+          background: linear-gradient(45deg, #FFC107, #FFD700);
         }
 
         .btn-submit:disabled {
@@ -573,17 +575,17 @@ const Registration = ({ onSuccessfulRegistration }) => {
           display: inline-flex;
           align-items: center;
           gap: 8px;
-          color: #667eea;
+          color: #1B5E20;
           text-decoration: none;
           font-weight: 600;
           padding: 12px 24px;
-          border: 2px solid #667eea;
+          border: 2px solid #1B5E20;
           border-radius: 25px;
           transition: all 0.3s ease;
         }
 
         .login-link:hover {
-          background: #667eea;
+          background: #1B5E20;
           color: white;
           transform: translateY(-2px);
         }

@@ -152,7 +152,7 @@ function App() {
         <nav className="navbar">
           <div className="nav-container">
             <Link to="/" className="nav-brand">
-              Magal Touba 2024
+              Magal Touba 2025
             </Link>
             <div className="nav-links">
               {/* Lien Accueil - TOUJOURS visible */}
@@ -281,9 +281,9 @@ function App() {
       
       <style>{`
         .navbar {
-          background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+          background: linear-gradient(135deg, #1B5E20 0%, #2E7D32 50%, #4CAF50 100%);
           padding: 1rem 0;
-          box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+          box-shadow: 0 4px 20px rgba(27, 94, 32, 0.3);
         }
 
         .nav-container {
@@ -331,13 +331,14 @@ function App() {
         }
 
         .admin-link {
-          background: rgba(255, 107, 107, 0.2);
-          border: 1px solid rgba(255, 107, 107, 0.3);
+          background: rgba(255, 215, 0, 0.2);
+          border: 1px solid rgba(255, 215, 0, 0.4);
         }
 
         .admin-link:hover {
-          background: #ff6b6b;
-          border-color: #ff6b6b;
+          background: #FFD700;
+          border-color: #FFD700;
+          color: #1B5E20;
         }
 
         .user-section {
@@ -356,8 +357,8 @@ function App() {
         }
 
         .admin-badge {
-          background: #ff6b6b;
-          color: white;
+          background: #FFD700;
+          color: #1B5E20;
           padding: 0.2rem 0.5rem;
           border-radius: 10px;
           font-size: 0.8rem;

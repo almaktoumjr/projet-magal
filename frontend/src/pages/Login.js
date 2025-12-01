@@ -166,7 +166,7 @@ const Login = ({ onSuccessfulLogin }) => {
         .login-page {
           padding: 4rem 0;
           min-height: 100vh;
-          background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+          background: linear-gradient(135deg, #1B5E20 0%, #2E7D32 50%, #4CAF50 100%);
           display: flex;
           align-items: center;
         }
@@ -190,7 +190,7 @@ const Login = ({ onSuccessfulLogin }) => {
         }
 
         .login-icon {
-          color: #667eea;
+          color: #FFD700;
           margin-bottom: 1.5rem;
         }
 
@@ -270,8 +270,8 @@ const Login = ({ onSuccessfulLogin }) => {
 
         .input-group input:focus {
           outline: none;
-          border-color: #667eea;
-          box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+          border-color: #1B5E20;
+          box-shadow: 0 0 0 3px rgba(27, 94, 32, 0.1);
         }
 
         .input-group input::placeholder {
@@ -289,8 +289,8 @@ const Login = ({ onSuccessfulLogin }) => {
         }
 
         .btn-submit {
-          background: linear-gradient(45deg, #667eea, #764ba2);
-          color: white;
+          background: linear-gradient(45deg, #FFD700, #FFC107);
+          color: #1B5E20;
           border: none;
           padding: 18px 36px;
           border-radius: 50px;
@@ -307,7 +307,8 @@ const Login = ({ onSuccessfulLogin }) => {
 
         .btn-submit:hover:not(:disabled) {
           transform: translateY(-2px);
-          box-shadow: 0 12px 35px rgba(102, 126, 234, 0.4);
+          box-shadow: 0 12px 35px rgba(255, 215, 0, 0.5);
+          background: linear-gradient(45deg, #FFC107, #FFD700);
         }
 
         .btn-submit:disabled {
@@ -345,17 +346,17 @@ const Login = ({ onSuccessfulLogin }) => {
           display: inline-flex;
           align-items: center;
           gap: 8px;
-          color: #667eea;
+          color: #1B5E20;
           text-decoration: none;
           font-weight: 600;
           padding: 12px 24px;
-          border: 2px solid #667eea;
+          border: 2px solid #1B5E20;
           border-radius: 25px;
           transition: all 0.3s ease;
         }
 
         .register-link:hover {
-          background: #667eea;
+          background: #1B5E20;
           color: white;
           transform: translateY(-2px);
         }
