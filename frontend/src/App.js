@@ -34,11 +34,10 @@ function App() {
     }
   }, []);
 
-  // Fonction appelée après une inscription réussie (redirige vers login)
-  const handleSuccessfulRegistration = () => {
-    // Cette fonction sera appelée pour rediriger vers la page de connexion
-    // La redirection se fait via le composant Registration lui-même
-  };
+  // Fonction appelée après une inscription réussie
+  // La page Registration gère déjà la redirection vers /login,
+  // donc ici on ne fait rien de spécial.
+  const handleSuccessfulRegistration = () => {};
 
   // Fonction appelée après une connexion réussie
   const handleSuccessfulLogin = (userData) => {
@@ -280,7 +279,7 @@ function App() {
         </main>
       </div>
       
-      <style jsx>{`
+      <style>{`
         .navbar {
           background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
           padding: 1rem 0;

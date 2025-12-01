@@ -10,7 +10,13 @@ class Pilgrim extends Model
     use HasFactory;
 
     protected $fillable = [
-        'nom', 'prenom', 'email', 'telephone', 'ville', 'date_inscription'
+        'nom',
+        'prenom',
+        'email',
+        'password',
+        'telephone',
+        'ville',
+        'date_inscription',
     ];
 
     protected $casts = [

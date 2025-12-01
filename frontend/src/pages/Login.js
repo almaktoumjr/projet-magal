@@ -53,85 +53,15 @@ const Login = ({ onSuccessfulLogin }) => {
     try {
       console.log('Tentative de connexion avec:', formData);
 
-      // SOLUTION TEMPORAIRE : Simulation de connexion
-      // Puisque vous n'avez pas de routes d'authentification dans votre backend
-      // nous allons simuler une connexion pour tester l'interface
-
-      // Vérification des identifiants admin
-      if (formData.email === 'admin@magal.com' && formData.password === 'admin123') {
-        const adminData = {
-          id: 1,
-          prenom: 'Administrateur',
-          nom: 'System',
-          email: 'admin@magal.com',
-          role: 'admin',
-          isAdmin: true
-        };
-
-        localStorage.setItem('authToken', 'fake-admin-token-' + Date.now());
-        localStorage.setItem('isAdmin', 'true');
-        onSuccessfulLogin(adminData);
-        return;
-      }
-
-      // Pour les utilisateurs normaux, essayer de récupérer depuis l'API des pèlerins
-      try {
-        const response = await apiService.getPilgrims();
-        const pilgrims = response.data;
-        
-        // Chercher un pèlerin avec cet email
-        const pilgrim = pilgrims.find(p => p.email === formData.email);
-        
-        if (pilgrim) {
-          // Dans un vrai système, vous devriez vérifier le mot de passe hashé
-          // Pour le moment, on accepte n'importe quel mot de passe
-          const userData = {
-            id: pilgrim.id,
-            prenom: pilgrim.prenom,
-            nom: pilgrim.nom,
-            email: pilgrim.email,
-            role: 'user',
-            isAdmin: false
-          };
-
-          localStorage.setItem('authToken', 'fake-user-token-' + Date.now());
-          onSuccessfulLogin(userData);
-        } else {
-          setError('Aucun compte trouvé avec cet email. Veuillez vous inscrire d\'abord.');
-        }
-      } catch (apiError) {
-        console.error('Erreur API:', apiError);
-        
-        // Fallback: connexion simulée pour tester
-        if (formData.email && formData.password) {
-          const userData = {
-            id: Date.now(),
-            prenom: 'Utilisateur',
-            nom: 'Test',
-            email: formData.email,
-            role: 'user',
-            isAdmin: false
-          };
-
-          localStorage.setItem('authToken', 'fake-token-' + Date.now());
-          onSuccessfulLogin(userData);
-        } else {
-          setError('Email ou mot de passe incorrect');
-        }
-      }
-
-      // NOTE IMPORTANTE: Une fois que vous aurez créé les vraies routes d'authentification,
-      // remplacez tout le code ci-dessus par :
-      /*
       const response = await apiService.loginPilgrim(formData);
-      
-      if (response.data.token) {
+
+      // On attend une réponse du type { token, user }
+      if (response.data?.token) {
         localStorage.setItem('authToken', response.data.token);
       }
-      
-      onSuccessfulLogin(response.data.user || response.data);
-      */
-      
+
+      const user = response.data?.user || response.data;
+      onSuccessfulLogin(user);
     } catch (error) {
       console.error('Erreur de connexion:', error);
       
@@ -232,7 +162,7 @@ const Login = ({ onSuccessfulLogin }) => {
         </div>
       </div>
 
-      <style jsx>{`
+      <style>{`
         .login-page {
           padding: 4rem 0;
           min-height: 100vh;

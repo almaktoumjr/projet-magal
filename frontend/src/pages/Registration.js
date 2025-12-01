@@ -80,35 +80,8 @@ const Registration = ({ onSuccessfulRegistration }) => {
       
       console.log('Données envoyées:', registrationData);
       
-      // Essayer différents endpoints possibles
-      let response;
-      try {
-        // Tentative 1: endpoint standard
-        response = await apiService.registerPilgrim(registrationData);
-      } catch (firstError) {
-        console.log('Endpoint registerPilgrim échoué, tentative avec un autre...');
-        
-        // Tentative 2: endpoint générique register (si apiService.register existe)
-        if (apiService.register) {
-          response = await apiService.register(registrationData);
-        } else {
-          // Tentative 3: appel direct avec fetch si l'endpoint est différent
-          const apiResponse = await fetch('http://localhost:8000/api/register', {
-            method: 'POST',
-            headers: {
-              'Content-Type': 'application/json',
-              'Accept': 'application/json',
-            },
-            body: JSON.stringify(registrationData),
-          });
-          
-          if (!apiResponse.ok) {
-            throw new Error(`HTTP error! status: ${apiResponse.status}`);
-          }
-          
-          response = await apiResponse.json();
-        }
-      }
+      // Appel direct à l'endpoint /api/pilgrims
+      const response = await apiService.registerPilgrim(registrationData);
       
       console.log('Inscription réussie:', response);
       
@@ -136,18 +109,51 @@ const Registration = ({ onSuccessfulRegistration }) => {
       }, 3000);
       
     } catch (error) {
-      console.error('Erreur d\'inscription:', error);
+      console.error('Erreur d\'inscription complète:', error);
+      console.error('Type d\'erreur:', error.name);
+      console.error('Message:', error.message);
+      console.error('Réponse erreur:', error.response);
       
-      // Utiliser handleApiError si disponible, sinon gestion manuelle
+      // Gestion détaillée des erreurs
+      let errorMessage = 'Une erreur est survenue lors de l\'inscription. Veuillez réessayer.';
+      
+      // Vérifier si c'est une erreur de connexion réseau
+      if (error.message === 'Failed to fetch' || error.name === 'TypeError' || !error.response) {
+        errorMessage = 'Impossible de se connecter au serveur. Vérifiez que le backend Laravel est démarré sur http://localhost:8000';
+        console.error('ERREUR DE CONNEXION: Le backend n\'est probablement pas accessible.');
+        console.error('Assurez-vous que le serveur Laravel est démarré avec: php artisan serve');
+      } else if (error.response) {
+        // Erreur avec réponse du serveur
+        const status = error.response.status;
+        const data = error.response.data;
+        
+        if (status === 422) {
+          // Erreur de validation
+          if (data.errors) {
+            // Laravel renvoie les erreurs de validation dans data.errors
+            const validationErrors = Object.values(data.errors).flat();
+            errorMessage = validationErrors.join(', ');
+          } else if (data.message) {
+            errorMessage = data.message;
+          } else {
+            errorMessage = 'Les données fournies ne sont pas valides. Vérifiez tous les champs.';
+          }
+        } else if (status === 500) {
+          errorMessage = 'Erreur serveur. Vérifiez les logs du backend Laravel.';
+        } else if (data.message) {
+          errorMessage = data.message;
+        } else if (data.error) {
+          errorMessage = data.error;
+        }
+      } else if (error.message) {
+        errorMessage = error.message;
+      }
+      
+      setError(errorMessage);
+      
+      // Optionnel: utiliser handleApiError pour afficher aussi dans le contexte global
       if (handleApiError) {
-        handleApiError(error, 'Erreur lors de l\'inscription');
-      } else {
-        const errorMessage = 
-          error.response?.data?.message || 
-          error.response?.data?.error ||
-          error.message ||
-          'Une erreur est survenue lors de l\'inscription. Veuillez réessayer.';
-        setError(errorMessage);
+        handleApiError(error, errorMessage);
       }
     } finally {
       setLoading(false);
@@ -177,7 +183,7 @@ const Registration = ({ onSuccessfulRegistration }) => {
           </div>
         </div>
 
-        <style jsx>{`
+        <style>{`
           .registration-page {
             padding: 4rem 0;
             min-height: 100vh;
@@ -405,7 +411,7 @@ const Registration = ({ onSuccessfulRegistration }) => {
         </div>
       </div>
 
-      <style jsx>{`
+      <style>{`
         .registration-page {
           padding: 4rem 0;
           min-height: 100vh;

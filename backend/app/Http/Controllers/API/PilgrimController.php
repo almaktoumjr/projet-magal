@@ -19,11 +19,15 @@ class PilgrimController extends Controller
             'nom' => 'required|string|max:255',
             'prenom' => 'required|string|max:255',
             'email' => 'required|email|unique:pilgrims',
+            'password' => 'required|string|min:6',
             'telephone' => 'required|string|max:20',
             'ville' => 'required|string|max:255'
         ]);
 
         $validated['date_inscription'] = now()->toDateString();
+        // Stocker le mot de passe en clair (pas de hashage)
+        // $validated['password'] reste tel quel
+
         return Pilgrim::create($validated);
     }
 
